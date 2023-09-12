@@ -40,6 +40,13 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 			}));
 		};
 	}
+	
+	@Override
+	public List<String> shortcutFieldOrder() {
+		return Arrays.asList("mensaje", "cookieNombre", "cookieValor");
+	}
+
+	
 	public static class Configuracion {
 
 		private String mensaje;
