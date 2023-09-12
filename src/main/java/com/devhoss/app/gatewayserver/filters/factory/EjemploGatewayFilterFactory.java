@@ -46,6 +46,11 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 		return Arrays.asList("mensaje", "cookieNombre", "cookieValor");
 	}
 
+	@Override
+	public String name() {
+		return "EjemploCookie";
+	}
+
 	
 	public static class Configuracion {
 
