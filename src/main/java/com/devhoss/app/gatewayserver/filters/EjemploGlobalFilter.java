@@ -15,7 +15,7 @@ import org.springframework.http.MediaType;
 import reactor.core.publisher.Mono;
 
 @Component
-public class EjemploGlobalFilter implements GlobalFilter {
+public class EjemploGlobalFilter implements GlobalFilter, Ordered {
 
 	private final Logger logger = LoggerFactory.getLogger(EjemploGlobalFilter.class);
 	
@@ -36,5 +36,10 @@ public class EjemploGlobalFilter implements GlobalFilter {
 		}));
 	}
 
+	@Override
+	public int getOrder() {
+		// TODO Auto-generated method stub
+		return 1;
+	}
 
 }
