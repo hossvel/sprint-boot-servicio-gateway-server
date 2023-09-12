@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.OrderedGatewayFilter;
 // import org.springframework.cloud.gateway.filter.OrderedGatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.http.ResponseCookie;
@@ -26,7 +27,7 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 
 	@Override
 	public GatewayFilter apply(Configuracion config) {
-		return (exchange, chain) -> {
+		return new OrderedGatewayFilter( (exchange, chain) -> {
 			
 			logger.info("ejecutando pre gateway filter factory: " + config.mensaje);
 			return chain.filter(exchange).then(Mono.fromRunnable(() -> {
@@ -38,7 +39,7 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 				logger.info("ejecutando post gateway filter factory: " + config.mensaje);
 				
 			}));
-		};
+		},2);
 	}
 	
 	@Override
