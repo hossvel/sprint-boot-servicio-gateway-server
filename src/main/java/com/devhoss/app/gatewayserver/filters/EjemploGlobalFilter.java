@@ -7,15 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+// import org.springframework.http.MediaType;
 import org.springframework.http.ResponseCookie;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
-import org.springframework.http.MediaType;
 
 import reactor.core.publisher.Mono;
 
 @Component
-public class EjemploGlobalFilter implements GlobalFilter, Ordered {
+public class EjemploGlobalFilter implements GlobalFilter, Ordered{
 
 	private final Logger logger = LoggerFactory.getLogger(EjemploGlobalFilter.class);
 	
@@ -38,8 +38,7 @@ public class EjemploGlobalFilter implements GlobalFilter, Ordered {
 
 	@Override
 	public int getOrder() {
-		// TODO Auto-generated method stub
-		return 1;
+		return 10;
 	}
 
 }
