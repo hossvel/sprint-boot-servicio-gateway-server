@@ -27,7 +27,7 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 	@Override
 	public GatewayFilter apply(Configuracion config) {
 		return (exchange, chain) -> {
-	
+			
 			logger.info("ejecutando pre gateway filter factory: " + config.mensaje);
 			return chain.filter(exchange).then(Mono.fromRunnable(() -> {
 				
@@ -41,17 +41,17 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 		};
 	}
 	
+	@Override
+	public List<String> shortcutFieldOrder() {
+		return Arrays.asList("mensaje", "cookieNombre", "cookieValor");
+	}
 
 	@Override
 	public String name() {
 		return "EjemploCookie";
 	}
 
-	@Override
-	public List<String> shortcutFieldOrder() {
-		return Arrays.asList("mensaje", "cookieNombre", "cookieValor");
-	}
-
+	
 	public static class Configuracion {
 
 		private String mensaje;
@@ -78,5 +78,7 @@ public class EjemploGatewayFilterFactory extends AbstractGatewayFilterFactory<Ej
 		
 		
 	}
+
+
 
 }
