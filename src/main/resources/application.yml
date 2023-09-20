@@ -45,10 +45,16 @@ spring:
           - AddResponseHeader=token-response, 12345678
           - SetResponseHeader=Content-Type, text/plain
           - AddRequestParameter=nombre, Agregaparametroarequest
+      - id: servicio-oauth
+        uri: lb://servicio-oauth
+        predicates:
+          - Path=/api/security/**
+        filters:
+          - StripPrefix=2
       - id: servicio-usuarios
         uri: lb://servicio-usuarios
         predicates:
-          - Path=/api/usuarios/**  
+          - Path=/api/usuarios/**
         filters:
-          - StripPrefix=2   
+          - StripPrefix=2  
           
