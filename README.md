@@ -10,5 +10,5 @@
 ## generar .jar: .\mvnw clean package -DskipTests
 ## generar imagen: docker build -t servicio-getway-server:v1 .
 ## creando red: docker network create sprintcloud
-## levantando servicio: docker run -d -P --name servicio-getway-server --network sprintcloud servicio-getway-server:v1
+## levantando servicio: docker run -d -p 8090:8090 --name servicio-getway-server --network sprintcloud servicio-getway-server:v1
    
